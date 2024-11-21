@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <!-- <form action="" method="post">
+        {% csrf_token %}
+        {{ form }}
+    </form> -->
+
+
+    <!-- rendering forms directly -->
+    <!-- <form action="">
+        {{forms}}
+    <button type="submit">Submit</button>
+    </form> -->
+    
+
+    <!-- manually rendering -->
+    <!-- <form action="">
+        <label for="">name:</label>
+        {{forms.name}} <br>
+
+        <label for="">usn</label>
+        {{forms.usn}} <br>
+        
+        <label for="">mobile</label>
+        {{forms.mobile}} <br>
+
+        <label for="">Corse</label>
+        {{forms.course}} <br>
+        <button type="submit">Submit</button>
+    </form> -->
+
+
+    <!-- rendering using the paragrapg tag -->
+    <center>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ forms.as_p }}
+        <button type="submit">Submit</button>
+    </form></center><br><br><br>
+
+
+    <center>
+    {% for i in var %}
+    <div style="border: 2px solid black; height: 120px; width:200px; background-color:rgb(35, 218, 218)"
+    <h1>
+        <ab style="color: red;">       {{i.name}} </ab> <br>
+        <abc style="color: blue;">     {{i.usn}} </abc> <br>
+        <abcd style="color: crimson;"> {{i.mobile}} </abcd> <br>
+        <abcd style="color: crimson;"> {{i.course}} </abcd> <br>
+    </h1><br>
+    
+    <button><a style="text-decoration: none;" href="{% url 'update' i.id %}">Update</a></button>
+    <button><a style="text-decoration: none;" href="{% url 'delete' i.id %}">Delete</a></button>
+    </div><br><br>
+    {% endfor %}
+    </center>
+
+{% endblock content %}
